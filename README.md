@@ -12,7 +12,7 @@ The command creates a remote bare repository `gitreponame.git` under
 
 **defaults**
 
-    git_dir="$HOME/git"    
+    git_dir="git"
     ssh_login="user@servername.tld"
 
 `git_dir` is the directory under which the remote bare git repo is
