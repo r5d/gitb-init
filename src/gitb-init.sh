@@ -10,7 +10,7 @@
 repo_name=$1
 
 git_dir="git" # default location relative to remote $HOME. change it if you want.
-ssh_login="rsiddharth@ninthfloor.org" # default ssh_login. you must change this.
+ssh_login="user@servername.tld" # default ssh_login. you must change this.
 
 
 if [ -n "$2" ]; then
