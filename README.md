@@ -1,7 +1,7 @@
 # gitb-init
 
-A dumb script that sets up a bare remote git repository for pushing &
-pulling using the dumb protocol.
+A dumb script that sets up a bare remote git repository for pulling
+using the dumb protocol.
 
 ## usage
 
