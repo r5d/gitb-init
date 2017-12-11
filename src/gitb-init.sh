@@ -58,7 +58,7 @@ fi
 if [ ! -z $2 ]; then
     REPOS_DIR=$2
 elif [ ! -z $GITBI_DIR ]; then
-    REPOS_DIR=$2
+    REPOS_DIR=$GITBI_DIR
 else
     echo 'ERROR: Bare repos directory not specified.'
     usage
