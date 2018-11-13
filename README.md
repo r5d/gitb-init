@@ -26,7 +26,7 @@ created. Change this variable's value as you see fit.
 
 ## license
 
-The script is under the [WTFPL version 2 license][3]. See COPYING for more
+The script is under the [WTFPL version 2 license][3]. See LICENSE for more
 details. This license is [compatible with GNU GPL][4].
 
 [3]: http://www.wtfpl.net/txt/copying/
