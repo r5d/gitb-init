@@ -9,44 +9,45 @@
 
 usage ()
 {
-    echo '\n  Usage: '\
-         '\n\n'\
-         '    ./gitb-init.sh REPO_NAME [REPOS_DIR] [REMOTE_HOST]'\
-         '\n'\
-         '\n        REPOS_DIR   - Bare repos directory; if not specified'\
-         '\n                      $GITBI_DIR is used.'\
-         '\n'\
-         '\n        REMOTE_HOST - Remote host name (user@host.name); if'\
-         '\n                      not specfied $GITBI_HOST is used'\
-         '\n  Examples: '\
-         '\n\n'\
-         '    ./gitb-init.sh project-snafu.git vcs/git/projects user@fortytwo.net\n'\
-         '\n         Will install bare git repository $HOME/vcs/git/projects/project-snafu.git'\
-         '\n         at host fortytwo.net.'\
-         '\n\n'\
-         '    ./gitb-init.sh project-snafu.git vcs/git/projects\n'\
-         '\n         Will install bare git repository $HOME/vcs/git/projects/project-snafu.git'\
-         '\n         at host defined by environment variable $GITBI_HOST.'\
-         '\n\n'\
-         '    ./gitb-init.sh project-snafu.git\n'\
-         '\n         Will install bare git repository $HOME/GITBI_DIR/project-snafu.git'\
-         '\n         at host defined by environment variable $GITBI_HOST, where path GITBI_DIR'\
-         '\n         is defined by environment variable $GITBI_DIR.'\
-         '\n'
+    echo
+    cat <<-EOF
+  Usage:
+
+     ./gitb-init.sh REPO_NAME [REPOS_DIR] [REMOTE_HOST]
+
+               REPOS_DIR   - Bare repos directory; if not specified
+                             $GITBI_DIR is used.
+
+               REMOTE_HOST - Remote host name (user@host.name); if
+                             not specfied $GITBI_HOST is used
+     Examples:
+         ./gitb-init.sh project-snafu.git vcs/git/projects user@fortytwo.net
+              Will install bare git repository $HOME/vcs/git/projects/project-snafu.git
+              at host fortytwo.net.
+
+         ./gitb-init.sh project-snafu.git vcs/git/projects
+              Will install bare git repository $HOME/vcs/git/projects/project-snafu.git
+              at host defined by environment variable $GITBI_HOST.
+
+         ./gitb-init.sh project-snafu.git
+              Will install bare git repository $HOME/GITBI_DIR/project-snafu.git
+              at host defined by environment variable $GITBI_HOST, where path GITBI_DIR
+              is defined by environment variable $GITBI_DIR.
+EOF
 }
 
 ssh_cmd()
 {
-    ssh <<-EOF $REMOTE_HOST\
-        'mkdir -p '$REPO_PATH\
-        '&& cd '$REPO_PATH\
+    ssh <<-EOF "$REMOTE_HOST"\
+        'mkdir -p '"$REPO_PATH"\
+        '&& cd '"$REPO_PATH"\
         '&& git init --bare'\
         '&& mv hooks/post-update.sample hooks/post-update'
 EOF
 }
 
 # Get repo name.
-if [ ! -z $1 ]; then
+if [ -n "$1" ]; then
     REPO_NAME=$1
 else
     echo 'ERROR: Repo name not specified.'
@@ -55,9 +56,9 @@ else
 fi
 
 # Get repos directory name.
-if [ ! -z $2 ]; then
+if [ -n "$2" ]; then
     REPOS_DIR=$2
-elif [ ! -z $GITBI_DIR ]; then
+elif [ -n "$GITBI_DIR" ]; then
     REPOS_DIR=$GITBI_DIR
 else
     echo 'ERROR: Bare repos directory not specified.'
@@ -66,9 +67,9 @@ else
 fi
 
 # Get remote host.
-if [ ! -z $3 ]; then
+if [ -n "$3" ]; then
     REMOTE_HOST=$3
-elif [ ! -z $GITBI_HOST ]; then
+elif [ -n "$GITBI_HOST" ]; then
     REMOTE_HOST=$GITBI_HOST
 else
     echo 'ERROR: Host not specified.'
