@@ -16,23 +16,23 @@ usage ()
      ./gitb-init.sh REPO_NAME [REPOS_DIR] [REMOTE_HOST]
 
                REPOS_DIR   - Bare repos directory; if not specified
-                             $GITBI_DIR is used.
+                             \$GITBI_DIR is used.
 
                REMOTE_HOST - Remote host name (user@host.name); if
-                             not specfied $GITBI_HOST is used
+                             not specfied \$GITBI_HOST is used
      Examples:
          ./gitb-init.sh project-snafu.git vcs/git/projects user@fortytwo.net
-              Will install bare git repository $HOME/vcs/git/projects/project-snafu.git
+              Will install bare git repository \$HOME/vcs/git/projects/project-snafu.git
               at host fortytwo.net.
 
          ./gitb-init.sh project-snafu.git vcs/git/projects
-              Will install bare git repository $HOME/vcs/git/projects/project-snafu.git
-              at host defined by environment variable $GITBI_HOST.
+              Will install bare git repository \$HOME/vcs/git/projects/project-snafu.git
+              at host defined by environment variable \$GITBI_HOST.
 
          ./gitb-init.sh project-snafu.git
-              Will install bare git repository $HOME/GITBI_DIR/project-snafu.git
-              at host defined by environment variable $GITBI_HOST, where path GITBI_DIR
-              is defined by environment variable $GITBI_DIR.
+              Will install bare git repository \$HOME/GITBI_DIR/project-snafu.git
+              at host defined by environment variable \$GITBI_HOST, where path GITBI_DIR
+              is defined by environment variable \$GITBI_DIR.
 EOF
 }
 
